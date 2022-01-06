@@ -1,0 +1,55 @@
+.custom-hero {
+    height: 750px !important;
+}
+
+.custom-input {
+    height: 35px !important;
+    padding-left: 18px !important;
+}
+
+.custom-input .current {
+    position: absolute;
+    top: -8px !important;
+    left: 18px!important;
+    font-size: 13px !important;
+}
+
+.custom-input select option {
+    font-size: 13px !important;
+}
+
+.custom-service {
+    padding-top: 0 !important;
+}
+
+.custom-service img {
+    height: 227px;
+}
+
+.custom-about a {
+    width: 100%;
+}
+
+.custom-about .about-img-three {
+    height: 660px;
+}
+
+.custom-about .about-img-three img {
+    height: 100%;
+    display: block;
+    margin: 0 auto;
+}
+
+.custom-testimonials img {
+    width: 90px !important;
+    height: 90px !important;
+}
+
+.custom-blog .post-image a,
+.custom-blog .post-image a img {
+    width: 100% !important;
+}
+
+.custom-blog .post-image img {
+    height: auto;
+}
