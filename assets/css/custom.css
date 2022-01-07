@@ -1,6 +1,7 @@
 .banner-area.bg-3 {
     background-image: url('../img/custom/cover.jpg') !important;
     background-size: cover;
+    background-repeat: no-repeat !important;
 }
 
 .shipment-area {
