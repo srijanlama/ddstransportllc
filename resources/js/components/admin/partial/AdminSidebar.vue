@@ -4,7 +4,7 @@
     <div>
       <ul>
         <template v-for="(item , index) in routes">
-                  <li :key="index"><a :href="route(item.name).url()">Drivers</a></li>
+                  <li :key="index"><a :href="route(item.name)"> <i v-if="item.icon" :class="item.icon"></i>Drivers</a></li>
         </template>
 
       </ul>
@@ -20,7 +20,8 @@ export default {
           routes: [
               {
                   name: 'admin.driver.index',
-                  title: 'Driver'
+                  title: 'Driver',
+                  icon:'fas fa-home'
               },
           ]
       }
