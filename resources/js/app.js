@@ -5,9 +5,24 @@
  */
 
 require('./bootstrap');
+import route from "ziggy-js";
+import { Ziggy } from "../js/ziggy";
+
 
 window.Vue = require('vue').default;
+window.Ziggy = Ziggy;
 
+
+Vue.mixin({
+    data() {
+        return {
+            Ziggy
+        };
+    },
+    methods: {
+        route: (name, params, absolute) => route(name, params, absolute, Ziggy)
+    }
+});
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

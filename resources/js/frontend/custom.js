@@ -1,5 +1,6 @@
 (function($) {
 	'use strict';
+	console.log("hello srijan");
 	// Mean Menu JS
 	$('.mean-menu').meanmenu({ 
 		meanScreenWidth: "991"

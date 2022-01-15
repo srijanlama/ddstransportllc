@@ -1,14 +1,14 @@
 @extends('layouts.app')
 @section('content')
     <div>
-        {{-- <!-- Start Preloader Area -->
+        <!-- Start Preloader Area -->
         <div class="preloader">
             <div class="lds-ripple">
                 <div></div>
                 <div></div>
             </div>
         </div>
-        <!-- End Preloader Area --> --}}
+        <!-- End Preloader Area -->
 
         <!-- Start Header Area -->
         <header class="header-area">
@@ -37,29 +37,29 @@
                                 <ul class="flag-area">
                                     <li class="flag-item-top">
                                         <a href="#" class="flag-bar">
-                                            <img src="assets/img/flag/usa.png" alt="Image">
+                                            <img src="img/flag/usa.png" alt="Image">
                                             <span>USA</span>
                                         </a>
 
                                         <ul class="flag-item-bottom">
                                             <li class="flag-item">
                                                 <a href="#" class="flag-link">
-                                                    <img src="assets/img/flag/canada.png" alt="Image"> Canada
+                                                    <img src="img/flag/canada.png" alt="Image"> Canada
                                                 </a>
                                             </li>
                                             <li class="flag-item">
                                                 <a href="#" class="flag-link">
-                                                    <img src="assets/img/flag/australia.png" alt="Image"> Australia
+                                                    <img src="img/flag/australia.png" alt="Image"> Australia
                                                 </a>
                                             </li>
                                             <li class="flag-item">
                                                 <a href="#" class="flag-link">
-                                                    <img src="assets/img/flag/germany.png" alt="Image"> Germany
+                                                    <img src="img/flag/germany.png" alt="Image"> Germany
                                                 </a>
                                             </li>
                                             <li class="flag-item">
                                                 <a href="#" class="flag-link">
-                                                    <img src="assets/img/flag/argentina.png" alt="Image"> Argentina
+                                                    <img src="img/flag/argentina.png" alt="Image"> Argentina
                                                 </a>
                                             </li>
                                         </ul>
@@ -337,7 +337,7 @@
                     <div class="col-lg-4 col-sm-6">
                         <div class="single-services-box">
                             <a href="#" class="services-img">
-                                <img src="assets/img/custom/services/service-1.jpg" alt="Image">
+                                <img src="img/custom/services/service-1.jpg" alt="Image">
                             </a>
 
                             <div class="services-content">
@@ -357,7 +357,7 @@
                     <div class="col-lg-4 col-sm-6">
                         <div class="single-services-box">
                             <a href="#" class="services-img">
-                                <img src="assets/img/custom/services/pexels-tima-miroshnichenko-6169668 (1).jpg"
+                                <img src="img/custom/services/pexels-tima-miroshnichenko-6169668 (1).jpg"
                                     alt="Image">
                             </a>
 
@@ -378,7 +378,7 @@
                     <div class="col-lg-4 col-sm-6">
                         <div class="single-services-box">
                             <a href="#" class="services-img">
-                                <img src="assets/img/custom/services/10-Secrets-To-Know-About-Dedicated-Truck-Driving-0.2-650x431.jpg"
+                                <img src="img/custom/services/10-Secrets-To-Know-About-Dedicated-Truck-Driving-0.2-650x431.jpg"
                                     alt="Image">
                             </a>
 
@@ -398,7 +398,7 @@
                     <div class="col-lg-4 col-sm-6">
                         <div class="single-services-box">
                             <a href="#" class="services-img">
-                                <img src="assets/img/custom/services/4770bc7028460f40c7458a912819493e.3.jpg" alt="Image">
+                                <img src="img/custom/services/4770bc7028460f40c7458a912819493e.3.jpg" alt="Image">
                             </a>
 
                             <div class="services-content">
@@ -418,7 +418,7 @@
                     <div class="col-lg-4 col-sm-6">
                         <div class="single-services-box">
                             <a href="#" class="services-img">
-                                <img src="assets/img/custom/services/intermodal-trucking.jpg" alt="Image">
+                                <img src="img/custom/services/intermodal-trucking.jpg" alt="Image">
                             </a>
 
                             <div class="services-content">
@@ -438,7 +438,7 @@
                     <div class="col-lg-4 col-sm-6">
                         <div class="single-services-box">
                             <a href="#" class="services-img">
-                                <img src="assets/img/custom/services/SemiTruck_Lead1.jpg" alt="Image">
+                                <img src="img/custom/services/SemiTruck_Lead1.jpg" alt="Image">
                             </a>
 
                             <div class="services-content">
@@ -474,7 +474,7 @@
                 <div class="row align-items-center">
                     <div class="col-lg-6">
                         <div class="about-img about-img-three">
-                            <img src="assets/img/custom/pexels-artem-podrez-5025517.jpg" alt="Image">
+                            <img src="img/custom/pexels-artem-podrez-5025517.jpg" alt="Image">
 
                             <div class="experience">
                                 <div class="">
@@ -565,7 +565,7 @@
 
                     <div class="col-lg-6">
                         <div class="choose-us-img choose-us-img-three">
-                            <img src="assets/img/custom/pexels-photoscom-93398.jpg" alt="Image">
+                            <img src="img/custom/pexels-photoscom-93398.jpg" alt="Image">
                         </div>
                     </div>
                 </div>
@@ -718,7 +718,7 @@
                 <div class="testimonials-slider-two owl-theme owl-carousel">
                     <div class="single-testimonials-two">
                         <div class="member-thumbnail">
-                            <img src="assets/img/custom/members/member-2.jpg" alt="Image">
+                            <img src="img/custom/members/member-2.jpg" alt="Image">
                         </div>
                         <h3>Pramod Yadav</h3>
                         <span>Marketer</span>
@@ -763,7 +763,7 @@
                 <div class="row">
                     <div class="col-lg-4 col-md-6">
                         <div class="single-team-member">
-                            <img src="assets/img/custom/members/member-2.jpg" alt="Image">
+                            <img src="img/custom/members/member-2.jpg" alt="Image">
 
                             <div class="team-content">
                                 <span>Cargo Department</span>
@@ -803,7 +803,7 @@
 
                     <div class="col-lg-4 col-md-6">
                         <div class="single-team-member">
-                            <img src="assets/img/custom/members/yoel-peterson-fAPXFILmLUI-unsplash.jpg" alt="Image">
+                            <img src="img/custom/members/yoel-peterson-fAPXFILmLUI-unsplash.jpg" alt="Image">
 
                             <div class="team-content">
                                 <span>Terminal Department.</span>
@@ -843,7 +843,7 @@
 
                     <div class="col-lg-4 col-md-6 offset-md-3 offset-lg-0">
                         <div class="single-team-member">
-                            <img src="assets/img/custom/members/member-2.jpg" alt="Image">
+                            <img src="img/custom/members/member-2.jpg" alt="Image">
 
                             <div class="team-content">
                                 <span>CEO</span>
@@ -901,7 +901,7 @@
                         <div class="single-blog-post">
                             <div class="post-image">
                                 <a href="#">
-                                    <img src="assets/img/custom/blogs/blog-1.jpg" alt="image">
+                                    <img src="img/custom/blogs/blog-1.jpg" alt="image">
                                 </a>
                             </div>
 
@@ -929,7 +929,7 @@
                         <div class="single-blog-post">
                             <div class="post-image">
                                 <a href="#">
-                                    <img src="assets/img/custom/blogs/blog-2.jpg" alt="image">
+                                    <img src="img/custom/blogs/blog-2.jpg" alt="image">
                                 </a>
                             </div>
 
@@ -957,7 +957,7 @@
                         <div class="single-blog-post">
                             <div class="post-image">
                                 <a href="#">
-                                    <img src="assets/img/custom/blogs/blog-3.jpg" alt="image">
+                                    <img src="img/custom/blogs/blog-3.jpg" alt="image">
                                 </a>
                             </div>
 

@@ -1,4 +1,4 @@
-const mix = require('laravel-mix');
+const mix = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,39 +11,46 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js')
+mix.js("resources/js/app.js", "public/js")
     .vue()
-    .sass('resources/sass/app.scss', 'public/css');
+    .sass("resources/sass/app.scss", "public/css");
 
-mix.styles([
-    'resources/css/admin/main.css',
-],'public/css/admin.css');
-mix.styles([
-    'resources/css/frontend/bootstrap.min.css',
-    'resources/css/frontend/owl.theme.default.min.css',
-    'resources/css/frontend/owl.carousel.min.css',
-    'resources/css/frontend/animate.min.css',
-    'resources/css/frontend/boxicons.min.css',
-    'resources/css/frontend/flaticon.css',
-    'resources/css/frontend/meanmenu.min.css',
-    'resources/css/frontend/nice-select.min.css',
-    'resources/css/frontend/odometer.min.css',
-    'resources/css/frontend/style.css',
-    'resources/css/frontend/custom.css',
-    'resources/css/frontend/responsive.css',
-],'public/css/frontend.css');
-mix.js([
-    'resources/js/frontend/jquery.min.js',
-    'resources/js/frontend/meanmenu.min.js',
-    'resources/js/frontend/wow.min.js',
-    'resources/js/frontend/owl.carousel.min.js',
-    'resources/js/frontend/nice-select.min.js',
-    'resources/js/frontend/magnific-popup.min.js',
-    'resources/js/frontend/jarallax.min.js',
-    'resources/js/frontend/odometer.min.js',
-    'resources/js/frontend/smoothscroll.min.js',
-    'resources/js/frontend/form-validator.min.js',
-    'resources/js/frontend/contact-form-script.js',
-    'resources/js/frontend/ajaxchimp.min.js',
-    'resources/js/frontend/custom.js',
-], 'public/js/frontend.js');
+mix.styles(["resources/css/admin/main.css"], "public/css/admin.css");
+mix.styles(
+    [
+        "resources/css/frontend/bootstrap.min.css",
+        "resources/css/frontend/owl.theme.default.min.css",
+        "resources/css/frontend/owl.carousel.min.css",
+        "resources/css/frontend/animate.min.css",
+        "resources/css/frontend/boxicons.min.css",
+        "resources/css/frontend/flaticon.css",
+        "resources/css/frontend/meanmenu.min.css",
+        "resources/css/frontend/nice-select.min.css",
+        "resources/css/frontend/odometer.min.css",
+        "resources/css/frontend/style.css",
+        "resources/css/frontend/custom.css",
+        "resources/css/frontend/responsive.css",
+    ],
+    "public/css/frontend.css"
+)
+    .combine(
+        [
+            "resources/js/frontend/jquery.min.js",
+            "resources/js/frontend/bootstrap.bundle.min.js",
+            "resources/js/frontend/meanmenu.min.js",
+            "resources/js/frontend/wow.min.js",
+            "resources/js/frontend/owl.carousel.min.js",
+            "resources/js/frontend/nice-select.min.js",
+            "resources/js/frontend/magnific-popup.min.js",
+            "resources/js/frontend/jarallax.min.js",
+            "resources/js/frontend/appear.min.js",
+            "resources/js/frontend/odometer.min.js",
+            "resources/js/frontend/smoothscroll.min.js",
+            "resources/js/frontend/form-validator.min.js",
+            "resources/js/frontend/contact-form-script.js",
+            "resources/js/frontend/ajaxchimp.min.js",
+            "resources/js/frontend/custom.js",
+        ],
+        "public/js/frontend.js"
+    )
+    .sourceMaps();

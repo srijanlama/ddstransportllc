@@ -3,7 +3,10 @@
     <div></div>
     <div>
       <ul>
-        <li><a>Drivers</a></li>
+        <template v-for="(item , index) in routes">
+                  <li :key="index"><a :href="route(item.name).url()">Drivers</a></li>
+        </template>
+
       </ul>
     </div>
   </div>
@@ -14,9 +17,10 @@ export default {
   name: "AdminSidebar",
   data(){
       return {
-          listItems: [
+          routes: [
               {
-                  name: 'Driver'
+                  name: 'admin.driver.index',
+                  title: 'Driver'
               },
           ]
       }
