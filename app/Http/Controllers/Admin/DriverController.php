@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Models\Driver;
+use App\Http\Controllers\Controller;
 
 class DriverController extends Controller
 {
@@ -14,7 +15,8 @@ class DriverController extends Controller
        return view('admin.driver.create'); 
     }
     public function edit($id){
-       return view('admin.driver.edit'); 
+       $driver = Driver::findOrFail($id);
+       return view('admin.driver.edit', compact('driver')); 
     }
 
 
