@@ -39,6 +39,8 @@ Vue.component(
     "example-component",
     require("./components/ExampleComponent.vue").default
 );
+//common component
+Vue.component("notification", require("./components/Notification.vue").default);
 
 Vue.component(
     "admin-sidebar",
@@ -51,6 +53,10 @@ Vue.component(
 Vue.component(
     "admin-driver-create",
     require("./components/admin/driver/AdminDriverCreate.vue").default
+);
+Vue.component(
+    "admin-driver-edit",
+    require("./components/admin/driver/AdminDriverEdit.vue").default
 );
 
 /**
