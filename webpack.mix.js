@@ -17,22 +17,22 @@ mix.js("resources/js/app.js", "public/js")
 
 mix.styles(["resources/css/admin/main.css"], "public/css/admin.css");
 mix.styles(
-    [
-        "resources/css/frontend/bootstrap.min.css",
-        "resources/css/frontend/owl.theme.default.min.css",
-        "resources/css/frontend/owl.carousel.min.css",
-        "resources/css/frontend/animate.min.css",
-        "resources/css/frontend/boxicons.min.css",
-        "resources/css/frontend/flaticon.css",
-        "resources/css/frontend/meanmenu.min.css",
-        "resources/css/frontend/nice-select.min.css",
-        "resources/css/frontend/odometer.min.css",
-        "resources/css/frontend/style.css",
-        "resources/css/frontend/custom.css",
-        "resources/css/frontend/responsive.css",
-    ],
-    "public/css/frontend.css"
-)
+        [
+            "resources/css/frontend/bootstrap.min.css",
+            "resources/css/frontend/owl.theme.default.min.css",
+            "resources/css/frontend/owl.carousel.min.css",
+            "resources/css/frontend/animate.min.css",
+            "resources/css/frontend/boxicons.min.css",
+            "resources/css/frontend/flaticon.css",
+            "resources/css/frontend/meanmenu.min.css",
+            "resources/css/frontend/nice-select.min.css",
+            "resources/css/frontend/odometer.min.css",
+            "resources/css/frontend/style.css",
+            "resources/css/frontend/custom.css",
+            "resources/css/frontend/responsive.css",
+        ],
+        "public/css/frontend.css"
+    )
     .combine(
         [
             "resources/js/frontend/jquery.min.js",
@@ -53,4 +53,4 @@ mix.styles(
         ],
         "public/js/frontend.js"
     )
-    .sourceMaps();
+    .sourceMaps(true);

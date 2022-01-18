@@ -18,6 +18,11 @@
     margin-bottom: 2rem !important;
 }
 
+.my-3 {
+    margin-top: 3rem !important;
+    margin-bottom: 3rem !important;
+}
+
 a {
     text-decoration: none !important;
     /* color: #fff !important; */
@@ -26,6 +31,10 @@ a {
 a:hover {
     text-decoration: none !important;
     color: rgb(153, 82, 233) !important;
+}
+
+.cs-header-container {
+    margin: 0 2.2rem !important;
 }
 
 .sidebar {

@@ -24,10 +24,10 @@
         @section('topbar')
             <div>
                 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-                    <div class="container">
-                        <a class="navbar-brand" href="{{ url('/') }}">
-                            {{ config('app.name', 'Laravel') }}
-                        </a>
+                    <div class="container-fluid cs-header-container">
+                        <div class="desktop">
+                            <a href="{{route('admin.driver.index')}}"><i class="fa fa-bars"></i></a>
+                        </div>
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -82,7 +82,7 @@
             </div>
 
         @section('sidebar')
-            <div class="sidebar bg-white">
+            <div class="sidebar bg-white shadow-sm">
                 <admin-sidebar></admin-sidebar>
             </div>
         @section('notifications')
