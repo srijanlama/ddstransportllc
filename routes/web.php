@@ -22,6 +22,12 @@ Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware('auth')->
     });
 });
 Route::get('/',[PageController::class, 'home'])->name('default');
+Route::prefix('drive')->name('drive.')->group(function(){
+    Route::get('/create',[PageController::class, 'drive'])->name('create');
+    Route::post('/store',[PageController::class, 'store'])->name('store');
+});
+
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
