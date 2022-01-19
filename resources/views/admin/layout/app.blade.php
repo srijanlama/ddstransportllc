@@ -24,10 +24,7 @@
         @section('topbar')
             <div>
                 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-                    <div class="container-fluid cs-header-container">
-                        <div class="desktop">
-                            <a href="{{route('admin.driver.index')}}"><i class="fa fa-bars"></i></a>
-                        </div>
+                    <div class="container-fluid">             
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">

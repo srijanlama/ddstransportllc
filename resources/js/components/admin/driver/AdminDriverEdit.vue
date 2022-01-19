@@ -29,10 +29,7 @@
                         <FormulateInput
                             label="state"
                             type="select"
-                            :options="[
-                                { value: 'alabama', label: 'Alabama' },
-                                { value: 'texas', label: 'Texas' },
-                            ]"
+                            :options="options"
                             v-model="form.state"
                         />
                     </div>
@@ -60,16 +57,28 @@
 import axios from "axios";
 export default {
     name: "AdminDriverEdit",
-    props:{
+    props: {
         driver: {
-            type: Object ,
-            default(){
-                return null
-            }
-        }
+            type: Object,
+            default() {
+                return null;
+            },
+        },
+        states: {
+            type: Array,
+            default() {
+                return {};
+            },
+        },
     },
-    created(){
-       this.form = Object.assign({},this.driver)
+    created() {
+        this.options = this.states.map((state) => {
+            return {
+                label: state.name,
+                value: state.name,
+            };
+        });
+        this.form = Object.assign({}, this.driver);
     },
     data() {
         return {
@@ -89,14 +98,14 @@ export default {
                 form_data.append(key, this.form[key]);
             }
             axios
-                .post(route("api.admin.driver.update",this.driver.id), form_data)
-                .then((res) =>{
-                  window.location.href = route('admin.driver.index')
-                }
+                .post(
+                    route("api.admin.driver.update", this.driver.id),
+                    form_data
                 )
-                .catch((err) =>
-                    console.log(err.response.data.errors)
-                );
+                .then((res) => {
+                    window.location.href = route("admin.driver.index");
+                })
+                .catch((err) => console.log(err.response.data.errors));
         },
     },
 };
