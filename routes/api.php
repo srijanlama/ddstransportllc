@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\Api\Admin\DriverController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Api\Admin\DriverController;
+use App\Http\Controllers\Api\Admin\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,6 +24,10 @@ Route::prefix('admin')->name('api.admin.')->namespace('Api\Admin')->middleware('
         Route::get('',[DriverController::class , 'all'])->name('all');
         route::post('store',[ DriverController::class , 'store'])->name('store');
         route::post('{id}/update',[ DriverController::class , 'update'])->name('update');
+    });
+
+    Route::prefix('/setting')->name('setting.')->group(function(){
+        Route::post('', [SettingController::class , 'action'])->name('action');
     });
     
 });

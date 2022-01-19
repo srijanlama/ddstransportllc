@@ -15,7 +15,44 @@
 </head>
 
 <body>
-    @yield('content')
+    <div>
+        <!-- Start Preloader Area -->
+        <div class="preloader">
+            <div class="lds-ripple">
+                <div></div>
+                <div></div>
+            </div>
+        </div>
+        <!-- End Preloader Area -->
+
+        <!-- Start Header Area -->
+        @include('layouts.partials.header')
+        <!-- End Header Area -->
+
+        @yield('content')
+        <!-- Start Footer Area -->
+        @include('layouts.partials.footer')
+        <!-- End Footer Area -->
+
+        <!-- Start Copy Right Area -->
+        <div class="copy-right-area">
+            <div class="container">
+                <p>
+                    Copyright <i class="bx bx-copyright"></i>2021 Ezio. Designed By
+                    <a href="https://hibootstrap.com/" target="_blank">HiBootstrap</a>
+                </p>
+            </div>
+        </div>
+        <!-- End Copy Right Area -->
+
+        <!-- Start Go Top Area -->
+        <div class="go-top">
+            <i class="bx bx-chevrons-up"></i>
+            <i class="bx bx-chevrons-up"></i>
+        </div>
+        <!-- End Go Top Area -->
+
+    </div>
     <script src="{{ asset('js/frontend.js') }}">
     </script>
 </body>
