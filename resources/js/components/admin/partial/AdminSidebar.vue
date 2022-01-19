@@ -35,17 +35,7 @@ export default {
                     children: {
                         path: "",
                     },
-                },
-                {
-                    name: "admin.driver.index",
-                    title: "Shippment",
-                    icon: "fas fa-truck",
-                },
-                {
-                    name: "admin.driver.index",
-                    title: "User",
-                    icon: "fas fa-user",
-                },
+                },          
                 {
                     name: "admin.setting.form",
                     title: "Settings",

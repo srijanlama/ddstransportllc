@@ -1,5 +1,16 @@
 <template>
     <div>
+        <div>
+            <nav aria-label="breadcrumb" class="">
+                <ol class="breadcrumb bg-white shadow-sm py-2 mb-3 px-3">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a :href="route('admin.driver.index')">Driver</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        Data
+                    </li>
+                </ol>
+            </nav>
+        </div>
         <div class="bg-white shadow-sm card-body">
             <FormulateForm @submit="doSearch">
                 <div class="row">
@@ -31,10 +42,14 @@
                     :append-params="params"
                     @vuetable:pagination-data="onPaginationData"
                 >
-                <div slot="status" slot-scope="props">
-                    <span class="badge bg-success" v-if="props.rowData.status">Active</span>
-                    <span class="badge bg-danger" v-else >Inactive</span>
-                </div>
+                    <div slot="status" slot-scope="props">
+                        <span
+                            class="badge bg-success"
+                            v-if="props.rowData.status"
+                            >Active</span
+                        >
+                        <span class="badge bg-danger" v-else>Inactive</span>
+                    </div>
                     <div slot="actions" slot-scope="props">
                         <div class="actions">
                             <div

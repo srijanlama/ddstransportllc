@@ -39,7 +39,7 @@ a:hover {
     top: 0 !important;
     min-width: 250px !important;
     min-height: 100vh;
-    margin-top: 55px;
+    z-index: 1;
 }
 
 .main-content {
