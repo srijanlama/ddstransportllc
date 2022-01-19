@@ -5,6 +5,7 @@ use App\Http\Controllers\PageController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\DriverController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\Admin\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,6 +18,7 @@ use App\Http\Controllers\Admin\SettingController;
 |
 */
 Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware('auth')->group(function(){
+    Route::get('/dashboard',[DashboardController::class, 'index'])->name('dashboard');
     Route::prefix('/driver')->name('driver.')->group(function(){
         Route::get('', [DriverController::class , 'index'])->name('index');
         Route::get('/create', [DriverController::class , 'create'])->name('create');

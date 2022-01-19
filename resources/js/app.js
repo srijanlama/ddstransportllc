@@ -10,6 +10,8 @@ import { Ziggy } from "../js/ziggy";
 
 window.Vue = require("vue").default;
 import VueFormulate from "@braid/vue-formulate";
+import FlashMessage from '@smartweb/vue-flash-message';
+Vue.use(FlashMessage);
 Vue.use(VueFormulate);
 window.Ziggy = Ziggy;
 window.route = route;

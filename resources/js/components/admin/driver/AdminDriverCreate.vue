@@ -1,10 +1,12 @@
 <template>
     <div>
-         <div>
+        <div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-white shadow-sm py-2 mb-3 px-3">
                     <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a :href="route('admin.driver.index')">Driver</a></li>
+                    <li class="breadcrumb-item">
+                        <a :href="route('admin.driver.index')">Driver</a>
+                    </li>
                     <li class="breadcrumb-item active" aria-current="page">
                         create
                     </li>
@@ -63,6 +65,9 @@
                 </FormulateForm>
             </div>
         </div>
+        <div>
+              <FlashMessage></FlashMessage>
+        </div>
     </div>
 </template>
 
@@ -70,23 +75,21 @@
 import axios from "axios";
 export default {
     name: "AdminDriverCreate",
-    props:{
-        states:{
+    props: {
+        states: {
             type: Array,
-            default(){
-                return {
-
-                }
-            }
-        }
+            default() {
+                return {};
+            },
+        },
     },
-    created(){
-        this.options = this.states.map(state => {
+    created() {
+        this.options = this.states.map((state) => {
             return {
-                label : state.name,
-                value : state.name
-            }
-        })
+                label: state.name,
+                value: state.name,
+            };
+        });
     },
     data() {
         return {
@@ -97,7 +100,7 @@ export default {
                 state: null,
                 status: null,
             },
-            options:null
+            options: null,
         };
     },
     methods: {
@@ -109,9 +112,22 @@ export default {
             axios
                 .post(route("api.admin.driver.store"), form_data)
                 .then((res) => {
+                    this.flashMessage.show({
+                        status: "success",
+                        title: "Success",
+                        message: res.data.message,
+                        time: 3000,
+                    });
+                    return
                     window.location.href = route("admin.driver.index");
                 })
-                .catch((err) => console.log(err.response.data.errors));
+                .catch((err) =>{
+                     this.flashMessage.show({
+                        status: "error",
+                        message: 'email already taken',
+                        time: 3000,
+                    });
+                });
         },
     },
 };
