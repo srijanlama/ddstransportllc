@@ -10,6 +10,7 @@
                 </ol>
             </nav>
         </div>
+
         <div class="driver-form">
             <div class="bg-white shadow-sm card-body">
                 <FormulateForm @submit="submitHandler">
@@ -67,6 +68,9 @@
                 </FormulateForm>
             </div>
         </div>
+        <div>
+            <FlashMessage></FlashMessage>
+        </div>
     </div>
 </template>
 
@@ -116,6 +120,11 @@ export default {
             axios
                 .post(route("api.admin.setting.action"), form_data)
                 .then((res) => {
+                    this.flashMessage.show({
+                        status: "success",
+                        message: res.data.message,
+                        time: 3000,
+                    });
                     window.location.href = route("admin.setting.form");
                 })
                 .catch();

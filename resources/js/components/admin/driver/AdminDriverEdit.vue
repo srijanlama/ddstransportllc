@@ -1,5 +1,17 @@
 <template>
-    <div class="driver-form">
+    <div>
+                <div>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb bg-white shadow-sm py-2 mb-3 px-3">
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a :href="route('admin.driver.index')">Driver</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        Edit
+                    </li>
+                </ol>
+            </nav>
+        </div>
+        <div class="driver-form">
         <div class="bg-white shadow-sm card-body">
             <FormulateForm @submit="submitHandler">
                 <div class="row">
@@ -50,6 +62,7 @@
                 </div>
             </FormulateForm>
         </div>
+    </div>
     </div>
 </template>
 
