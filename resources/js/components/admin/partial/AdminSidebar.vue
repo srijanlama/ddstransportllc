@@ -47,7 +47,7 @@ export default {
                     icon: "fas fa-user",
                 },
                 {
-                    name: "admin.driver.index",
+                    name: "admin.setting.form",
                     title: "Settings",
                     icon: "fas fa-cog",
                 },

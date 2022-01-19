@@ -50,6 +50,7 @@ mix.styles(
             "resources/js/frontend/contact-form-script.js",
             "resources/js/frontend/ajaxchimp.min.js",
             "resources/js/frontend/custom.js",
+            "resources/js/frontend/main.js",
         ],
         "public/js/frontend.js"
     )

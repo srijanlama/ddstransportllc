@@ -6476,6 +6476,16 @@ body {
     padding-top: 0 !important;
 }
 
+div.states span.current {
+    position: absolute !important;
+    top: 4px !important;
+}
+
+div.states ul.list {
+    max-height: 300px !important;
+    overflow-y: scroll;
+}
+
 @media only screen and (max-width: 576px) {
     .top-header,
     .dot-menu,

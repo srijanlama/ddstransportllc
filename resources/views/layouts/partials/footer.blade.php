@@ -95,17 +95,15 @@
 
                     <ul class="address">
                         <li class="location">
-                            <i class="bx bxs-location-plus"></i> 9170 Millbrook Rd, Alabama, IL 60541
+                            <i class="bx bxs-location-plus"></i> {{(isset($setting->address)?$setting->address:'' )}}
                         </li>
                         <li>
                             <i class="bx bxs-envelope"></i>
-                            <a href="pramodyadav@gmail.com">pramodyadav@gmail.com</a>
-                            <a href="pramodyadav@gmail.com">pramodyadav@gmail.com</a>
+                            <a href="#">{{(isset($setting->email)?$setting->email:'' )}}</a>
                         </li>
                         <li>
                             <i class="bx bxs-phone-call"></i>
-                            <a href="tel:+1-(123)-456-7890">+1 (123) 456 7890</a>
-                            <a href="tel:+1-(514)-312-6678">+1 (514) 312-6678</a>
+                            <a href="#">{{(isset($setting->phone)?$setting->phone:'' )}}</a>
                         </li>
                     </ul>
                 </div>

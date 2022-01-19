@@ -33,10 +33,6 @@ a:hover {
     color: rgb(153, 82, 233) !important;
 }
 
-.cs-header-container {
-    margin: 0 2.2rem !important;
-}
-
 .sidebar {
     position: absolute;
     left: 0 !important;

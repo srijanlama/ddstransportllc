@@ -58,6 +58,7 @@ Vue.component(
     "admin-driver-edit",
     require("./components/admin/driver/AdminDriverEdit.vue").default
 );
+Vue.component("admin-setting-form", require("./components/admin/setting/AdminSettingForm").default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

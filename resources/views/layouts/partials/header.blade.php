@@ -6,53 +6,20 @@
                 <div class="col-lg-8 col-md-10">
                     <ul class="header-left-content">
                         <li>
-                            <i class="bx bx-home"></i> 9170 Millbrook Rd, Alabama,
+                            <i class="bx bx-home"></i>{{ isset($setting->address) ? $setting->address : '' }}
                         </li>
                         <li>
                             <i class="bx bx-phone-call"></i>
-                            <a href="tel:+1-(123)-456-7890">+1 (123) 456 7890</a>
+                            <a href="#">{{ isset($setting->phone) ? $setting->phone : '' }}</a>
                         </li>
                         <li>
                             <i class="bx bx-envelope"></i>
-                            <a href="pramodyadav@gmail.com">pramodyadav@gmail.com</a>
+                            <a href="#">{{ isset($setting->email) ? $setting->email : '' }}</a>
                         </li>
                     </ul>
                 </div>
 
                 <div class="col-lg-4 col-md-2">
-                    <div class="header-right-content">
-                        <ul class="flag-area">
-                            <li class="flag-item-top">
-                                <a href="#" class="flag-bar">
-                                    <img src="/img/flag/usa.png" alt="Image">
-                                    <span>USA</span>
-                                </a>
-
-                                <ul class="flag-item-bottom">
-                                    <li class="flag-item">
-                                        <a href="#" class="flag-link">
-                                            <img src="img/flag/canada.png" alt="Image"> Canada
-                                        </a>
-                                    </li>
-                                    <li class="flag-item">
-                                        <a href="#" class="flag-link">
-                                            <img src="img/flag/australia.png" alt="Image"> Australia
-                                        </a>
-                                    </li>
-                                    <li class="flag-item">
-                                        <a href="#" class="flag-link">
-                                            <img src="img/flag/germany.png" alt="Image"> Germany
-                                        </a>
-                                    </li>
-                                    <li class="flag-item">
-                                        <a href="#" class="flag-link">
-                                            <img src="img/flag/argentina.png" alt="Image"> Argentina
-                                        </a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
                 </div>
             </div>
         </div>
@@ -65,7 +32,7 @@
             <div class="container">
                 <div class="mobile-menu">
                     <div class="logo">
-                        <a href="{{route('default')}}">
+                        <a href="{{ route('default') }}">
                             <h5>Your Logo</h5>
                         </a>
                     </div>
@@ -76,7 +43,7 @@
         <div class="desktop-nav">
             <div class="container">
                 <nav class="navbar navbar-expand-md navbar-light">
-                    <a class="navbar-brand" href="{{route('default')}}">
+                    <a class="navbar-brand" href="{{ route('default') }}">
                         <h5>Your Logo</h5>
                     </a>
 
@@ -89,26 +56,26 @@
                             </li>
 
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Services</a>
+                                <a href="#" class="nav-link services">Services</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">About</a>
+                                <a href="#" class="nav-link about">About</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Blogs</a>
+                                <a href="#" class="nav-link plans">Plans</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Careers</a>
+                                <a href="#" class="nav-link team">Our Team</a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">Contact</a>
+                                <a href="#" class="nav-link blogs">Blogs</a>
                             </li>
                         </ul>
 
                         <div class="others-option">
                             <div class="get-quote">
-                                <a href="#" class="default-btn">
-                                    <span>Get A Quote</span>
+                                <a href="{{ route('drive.create') }}" class="default-btn">
+                                    <span>Apply for Drive</span>
                                 </a>
                             </div>
                         </div>

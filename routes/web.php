@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PageController;
+use App\Http\Controllers\ContactController;
 use App\Http\Controllers\Admin\DriverController;
+use App\Http\Controllers\Admin\SettingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,13 +22,16 @@ Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware('auth')->
         Route::get('/create', [DriverController::class , 'create'])->name('create');
         Route::get('/{id}/edit', [DriverController::class , 'edit'])->name('edit');
     });
+    Route::prefix('/setting')->name('setting.')->group(function(){
+        Route::get('', [SettingController::class, 'form'])->name('form');
+        Route::post('', [SettingController::class , 'action'])->name('action');
+    });
 });
 Route::get('/',[PageController::class, 'home'])->name('default');
 Route::prefix('drive')->name('drive.')->group(function(){
     Route::get('/create',[PageController::class, 'drive'])->name('create');
     Route::post('/store',[PageController::class, 'store'])->name('store');
 });
-
 
 
 Route::get('/dashboard', function () {

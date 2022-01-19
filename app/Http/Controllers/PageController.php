@@ -2,18 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Models\State;
 use Illuminate\Http\Request;
 use App\Models\Models\Driver;
+use App\Models\Models\Setting;
 
 class PageController extends Controller
 {
     public function home(){
-        return view('page.home');
+        $setting = Setting::first();
+        return view('page.home',compact('setting'));
     }
     public function drive(){
-        return view('page.drive');
+        $states = State::all();
+        $setting = Setting::first();
+        return view('page.drive', compact('states','setting'));
     }
     public function store(){
+        // dd(request()->all());
        $data = request()->validate([
             'name' => 'required',
             'email' => 'required|unique:drivers',
@@ -22,7 +28,7 @@ class PageController extends Controller
         ]);
         $driver = Driver::create($data);
         if ($driver->save()) {  
-            return redirect()->route('default')->with(['success'=> 'Driver Added Successfully']);
+            return back()->with(['success'=> 'Driver Added Successfully']);
         }
         return back()->withErrors(['error'=> 'something went wrong']);
     }
