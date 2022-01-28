@@ -3,7 +3,7 @@
         <div>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb bg-white shadow-sm py-2 mb-3 px-3">
-                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                    <li class="breadcrumb-item"><a :href="route('admin.dashboard')">Dashboard</a></li>
                     <li class="breadcrumb-item">
                         <a :href="route('admin.driver.index')">Driver</a>
                     </li>
@@ -118,7 +118,6 @@ export default {
                         message: res.data.message,
                         time: 3000,
                     });
-                    return
                     window.location.href = route("admin.driver.index");
                 })
                 .catch((err) =>{

@@ -23,7 +23,7 @@
     <div id="app">
         @section('topbar')
             <div>
-                <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+                <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm px-4">
                     <div class="container-fluid">             
                         <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                             data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
