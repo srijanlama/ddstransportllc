@@ -38,8 +38,8 @@
         <div class="copy-right-area">
             <div class="container">
                 <p>
-                    Copyright <i class="bx bx-copyright"></i>2021 Ezio. Designed By
-                    <a href="https://hibootstrap.com/" target="_blank">HiBootstrap</a>
+                    Copyright <i class="bx bx-copyright"></i>2021. Developed By
+                    <a href="https://www.freelancer.com/u/srizn" target="_blank">Srijan Lama</a>
                 </p>
             </div>
         </div>

@@ -65,7 +65,7 @@
                                 <input type="text" name="phone" id="phone" required data-error="Please enter your number"
                                     class="form-control" placeholder="Your Phone">
                                 <div class="help-block with-errors">
-                                    @error('email')
+                                    @error('phone')
                                         <ul class="list-unstyled">
                                             <li> {{ $message }}</li>
                                         </ul>

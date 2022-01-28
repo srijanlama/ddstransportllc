@@ -1,7 +1,7 @@
 <template>
   <div class="sidebar-content">
     <div class="branding">
-      <h5>Trucking Company</h5>
+      <h5 class="mx-3">Trucking</h5>
     </div>
     <div class="menu-wrapper">
       <ul class="list-group">
@@ -22,22 +22,19 @@ export default {
       return {
           routes: [
               {
+                  name: 'admin.dashboard',
+                  title: 'Dashboard',
+                  icon:'fas fa-tachometer-alt',
+              },
+              {
                   name: 'admin.driver.index',
                   title: 'Driver',
-                  icon:'fas fa-home',
-                  children: {
-                    path: ''
-                  }
+                  icon:'fas fa-car',
               },
               {
-                  name: 'admin.driver.index',
-                  title: 'User',
-                  icon:'fas fa-user'
-              },
-              {
-                  name: 'admin.driver.index',
-                  title: 'Shippment',
-                  icon:'fas fa-home'
+                  name: 'admin.setting.form',
+                  title: 'Setting',
+                  icon:'fas fa-cog'
               },
           ]
       }
@@ -48,8 +45,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.branding h5  {
+  padding: 0.5rem 1rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
 .sidebar-content{
   padding: 1rem;
+  margin-top: 3rem ;
 }
 div.branding {
   min-height: 48px;
