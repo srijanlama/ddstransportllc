@@ -30,7 +30,7 @@
             </div>
             <div class="container">
                 <form method="post" action="{{ route('drive.store') }}">
-                    @csrf
+                    {{ csrf_field() }}
                     <div class="row">
                         <div class="col-lg-6 col-sm-6">
                             <div class="form-group">
