@@ -3,6 +3,7 @@
 /public/storage
 /storage/*.key
 /vendor
+/resources/js/ziggy.js
 .env
 .env.backup
 /resources/js/ziggy.js
@@ -14,3 +15,4 @@ npm-debug.log
 yarn-error.log
 /.idea
 /.vscode
+/public
