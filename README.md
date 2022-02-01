@@ -1,4 +1,4 @@
-Some basic Installation are:
+Some basic Installation
 ```
 composer install 
 npm install 
