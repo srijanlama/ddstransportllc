@@ -1,7 +1,6 @@
 ### Project Setup
 
 ```
-
 composer install 
 npm install
 
@@ -12,6 +11,7 @@ npm install
 php artisan key:generate 
 php artisan migrate --seed
 php artisan ziggy:generate
+
 ```
 
 ### Developement Setup
