@@ -1,5 +1,4 @@
 ### Project Setup
-
 ```
 composer install 
 npm install
