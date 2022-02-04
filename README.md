@@ -3,7 +3,6 @@
 ```
 composer install 
 npm install
-
 ```
 ### Application Bootstrap
 
@@ -11,7 +10,6 @@ npm install
 php artisan key:generate 
 php artisan migrate --seed
 php artisan ziggy:generate
-
 ```
 
 ### Developement Setup
@@ -24,5 +22,4 @@ php artisan serve
 
 ```
 npm run production
-
 ```
