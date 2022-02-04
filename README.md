@@ -1,4 +1,5 @@
-Some basic Installation
+### Project Setup
+
 ```
 composer install 
 npm install 
