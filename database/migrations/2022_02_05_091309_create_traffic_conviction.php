@@ -1,0 +1,36 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+class CreateTrafficConviction extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('traffic_conviction', function (Blueprint $table) {
+            $table->id();
+            $table->string('location')->nullable();
+            $table->date('date')->nullable();
+            $table->string('charge')->nullable();
+            $table->unsignedDouble('penalty')->nullable();
+            $table->unsignedBigInteger('driver_id')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('traffic_conviction');
+    }
+}

@@ -263,16 +263,16 @@
     })
 
     // Subscribe form JS
-    $(".newsletter-form").validator().on("submit", function(event) {
-        if (event.isDefaultPrevented()) {
-            // handle the invalid form...
-            formErrorSub();
-            submitMSGSub(false, "Please enter your email correctly.");
-        } else {
-            // everything looks good!
-            event.preventDefault();
-        }
-    });
+    // $(".newsletter-form").validator().on("submit", function(event) {
+    //     if (event.isDefaultPrevented()) {
+    //         // handle the invalid form...
+    //         formErrorSub();
+    //         submitMSGSub(false, "Please enter your email correctly.");
+    //     } else {
+    //         // everything looks good!
+    //         event.preventDefault();
+    //     }
+    // });
 
     function callbackFunction(resp) {
         if (resp.result === "success") {
@@ -307,10 +307,10 @@
     }
 
     // AJAX MailChimp JS
-    $(".newsletter-form").ajaxChimp({
-        url: "https://Envy Theme.us20.list-manage.com/subscribe/post?u=60e1ffe2e8a68ce1204cd39a5&amp;id=42d6d188d9", // Your url MailChimp
-        callback: callbackFunction
-    });
+    // $(".newsletter-form").ajaxChimp({
+    //     url: "https://Envy Theme.us20.list-manage.com/subscribe/post?u=60e1ffe2e8a68ce1204cd39a5&amp;id=42d6d188d9", // Your url MailChimp
+    //     callback: callbackFunction
+    // });
 
     // Input Plus & Minus Number JS
     $('.input-counter').each(function() {
