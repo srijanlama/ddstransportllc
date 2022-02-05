@@ -11,6 +11,9 @@ const mix = require("laravel-mix");
  |
  */
 
+ mix.js("resources/js/front.js", "public/js")
+    .vue()
+
 mix.js("resources/js/app.js", "public/js")
     .vue()
     .sass("resources/sass/app.scss", "public/css")
@@ -45,10 +48,10 @@ mix.styles(
             "resources/js/frontend/jarallax.min.js",
             "resources/js/frontend/appear.min.js",
             "resources/js/frontend/odometer.min.js",
-            "resources/js/frontend/smoothscroll.min.js",
-            "resources/js/frontend/form-validator.min.js",
-            "resources/js/frontend/contact-form-script.js",
-            "resources/js/frontend/ajaxchimp.min.js",
+            // "resources/js/frontend/smoothscroll.min.js",
+            // "resources/js/frontend/form-validator.min.js",
+            // "resources/js/frontend/contact-form-script.js",
+            // "resources/js/frontend/ajaxchimp.min.js",
             "resources/js/frontend/custom.js",
             "resources/js/frontend/main.js",
         ],

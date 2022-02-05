@@ -15,7 +15,7 @@
 </head>
 
 <body>
-    <div>
+    <div id="app">
         <!-- Start Preloader Area -->
         <div class="preloader">
             <div class="lds-ripple">
@@ -55,6 +55,7 @@
     </div>
     <script src="{{ asset('js/frontend.js') }}">
     </script>
+    <script src="{{ mix('/js/front.js') }}"></script>
 </body>
 
 </html>
