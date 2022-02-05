@@ -43,5 +43,16 @@ a:hover {
 }
 
 .main-content {
-    margin-left: 300px !important;
+    margin-left: 250px !important;
+    padding: 0 3rem ;
+}
+.dashboard-item {
+    padding: 1rem 2rem;
+    margin: 1rem;
+    background-color: #f6f6f6;
+}
+.dashboard-item strong {
+    margin-right: 4.5rem;
+    font-size: 22px;
+    font-weight: 900;
 }
