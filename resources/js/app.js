@@ -9,8 +9,10 @@ import route from "ziggy-js";
 import { Ziggy } from "../js/ziggy";
 
 window.Vue = require("vue").default;
+import { BootstrapVue } from 'bootstrap-vue'
 import VueFormulate from "@braid/vue-formulate";
-import FlashMessage from '@smartweb/vue-flash-message';
+import FlashMessage from "@smartweb/vue-flash-message";
+import Vue from "vue";
 Vue.use(FlashMessage);
 Vue.use(VueFormulate);
 window.Ziggy = Ziggy;
@@ -26,6 +28,9 @@ Vue.mixin({
         route: (name, params, absolute) => route(name, params, absolute, Ziggy),
     },
 });
+
+
+Vue.use(BootstrapVue)
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -53,6 +58,10 @@ Vue.component(
     require("./components/admin/driver/DriverDataTable.vue").default
 );
 Vue.component(
+    "driver-form",
+    require("./components/admin/driver/DriverForm.vue").default
+);
+Vue.component(
     "admin-driver-create",
     require("./components/admin/driver/AdminDriverCreate.vue").default
 );
@@ -60,7 +69,10 @@ Vue.component(
     "admin-driver-edit",
     require("./components/admin/driver/AdminDriverEdit.vue").default
 );
-Vue.component("admin-setting-form", require("./components/admin/setting/AdminSettingForm").default);
+Vue.component(
+    "admin-setting-form",
+    require("./components/admin/setting/AdminSettingForm").default
+);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

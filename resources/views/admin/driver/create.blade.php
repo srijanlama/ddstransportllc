@@ -2,7 +2,7 @@
 @section('content')
  <div>
     <div>
-      <admin-driver-create :states="{{json_encode($states)}}"></admin-driver-create>
+      <driver-form :states="{{json_encode($states)}}"></driver-form>
     </div>
  </div>
 @endsection
