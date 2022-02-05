@@ -1,10 +1,7 @@
 {
-<<<<<<< HEAD
-=======
     "/js/front.js": "/js/front.js",
     "/js/app.js": "/js/app.js",
     "/css/app.css": "/css/app.css",
->>>>>>> 1c29d40c6965e3712c2af491ba40b233a42f0825
     "/css/admin.css": "/css/admin.css",
     "/css/frontend.css": "/css/frontend.css",
     "/js/frontend.js": "/js/frontend.js"
