@@ -14,7 +14,7 @@
         </ol>
       </nav>
     </div>
-    <FormulateForm>
+    <FormulateForm @submit="submitHandler">
       <div class="driver-form">
         <div class="bg-white shadow-sm card-body">
           <div>
@@ -115,6 +115,17 @@
                       v-model="form.pre_drug_test"
                     />
                   </div>
+                  <div class="form-group col-md-4 col-lg-4">
+                    <FormulateInput
+                      label="Have you been served to Jail Term ?"
+                      type="select"
+                      :options="[
+                        { value: 1, label: 'YES' },
+                        { value: 0, label: 'NO' },
+                      ]"
+                      v-model="form.jail_term"
+                    />
+                  </div>
                 </div>
               </b-tab>
               <b-tab title="Employment History">
@@ -127,7 +138,7 @@
                   >
                     <div class="row">
                       <div class="col-md-4 col-lg-4">
-                        <FormulateInput                   
+                        <FormulateInput
                           label="name"
                           name="name"
                           validation="required"
@@ -151,6 +162,43 @@
                           type="select"
                           :options="options"
                           name="state"
+                        />
+                      </div>
+                      <div class="col-md-4 col-lg-4">
+                        <FormulateInput label="zip" name="zip" />
+                      </div>
+                      <div class="col-md-4 col-lg-4">
+                        <FormulateInput label="phone" name="phone" />
+                      </div>
+                      <div class="col-md-4 col-lg-4">
+                        <FormulateInput label="position" name="position" />
+                      </div>
+                      <div class="col-md-4 col-lg-4">
+                        <FormulateInput
+                          label="started on"
+                          type="date"
+                          name="start_on"
+                        />
+                      </div>
+                      <div class="col-md-4 col-lg-4">
+                        <FormulateInput
+                          label="ended on"
+                          type="date"
+                          name="end_on"
+                        />
+                      </div>
+                      <div class="col-md-4 col-lg-4">
+                        <FormulateInput
+                          label="Salary"
+                          type="number"
+                          name="salary"
+                        />
+                      </div>
+                      <div class="col-md-4 col-lg-4">
+                        <FormulateInput
+                          label="Reason For Leaving"
+                          type="textarea"
+                          name="reason_for_leaving"
                         />
                       </div>
                     </div>
@@ -319,6 +367,7 @@
             <div class="row">
               <div class="col-md-12 col-lg-12">
                 <button type="submit">Save Driver</button>
+                <a :href="route('admin.driver.index')">Cancel</a>
               </div>
             </div>
           </div>
@@ -380,12 +429,12 @@ export default {
   },
   methods: {
     submitHandler() {
-      let form_data = new FormData();
-      for (var key in this.form) {
-        form_data.append(key, this.form[key]);
-      }
+      const headers = {
+        'Accept' :'application/json',
+        'Content-Type' :'application/json',
+      };
       axios
-        .post(route("api.admin.driver.store"), form_data)
+        .post(route("api.admin.driver.store"), this.form ,headers)
         .then((res) => {
           this.flashMessage.show({
             status: "success",

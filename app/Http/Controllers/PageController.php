@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Models\State;
 use Illuminate\Http\Request;
-use App\Models\Models\Driver;
-use App\Models\Models\Setting;
+use App\Models\Driver;
+use App\Models\Setting;
 
 class PageController extends Controller
 {

@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\User;
 use Illuminate\Http\Request;
-use App\Models\Models\Driver;
+use App\Models\Driver;
 use App\Http\Controllers\Controller;
 
 class DashboardController extends Controller

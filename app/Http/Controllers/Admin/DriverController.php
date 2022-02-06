@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Models\State;
+use App\Models\State;
 use Illuminate\Http\Request;
-use App\Models\Models\Driver;
+use App\Models\Driver;
 use App\Http\Controllers\Controller;
 
 class DriverController extends Controller
