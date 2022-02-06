@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Api\Admin;
 
 use Illuminate\Http\Request;
-use App\Models\Models\Driver;
+use App\Models\Driver;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\DriverCollection;
+use App\Service\DriverService;
 
 class DriverController extends Controller
 {
@@ -20,6 +21,7 @@ class DriverController extends Controller
     }
     public function store()
     {
+        return DriverService::store();
         $data = request()->validate([
             'name' => 'required',
             'email' => 'required|unique:drivers',
@@ -63,4 +65,8 @@ class DriverController extends Controller
             'message' => 'something went wrong',
         ]);
     }
+    public function show($driver_id){
+        return Driver::with('employment_histories')->findOrFail($driver_id);
+    }
+  
 }
