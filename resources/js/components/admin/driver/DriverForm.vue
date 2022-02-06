@@ -399,6 +399,21 @@ export default {
         value: state.name,
       };
     });
+    this.form = Object.assign({},this.driver);
+  },
+  props: {
+    driver: {
+      type: Object,
+      default() {
+        return null;
+      },
+    },
+    states: {
+      type: Array,
+      default() {
+        return {};
+      },
+    },
   },
   data() {
     return {
@@ -430,11 +445,11 @@ export default {
   methods: {
     submitHandler() {
       const headers = {
-        'Accept' :'application/json',
-        'Content-Type' :'application/json',
+        Accept: "application/json",
+        "Content-Type": "application/json",
       };
       axios
-        .post(route("api.admin.driver.store"), this.form ,headers)
+        .post(route("api.admin.driver.store"), this.form, headers)
         .then((res) => {
           this.flashMessage.show({
             status: "success",
