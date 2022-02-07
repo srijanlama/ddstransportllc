@@ -1,6 +1,6 @@
 <template>
   <div>
-    {{ form }}
+    {{ form.employment_histories }}
     <div>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-white shadow-sm py-2 mb-3 px-3">
@@ -133,7 +133,7 @@
                   <FormulateInput
                     type="group"
                     :repeatable="true"
-                    v-model="form.employment_history"
+                    v-model="form.employment_histories"
                     element-class="form-array"
                   >
                     <div class="row">
@@ -210,7 +210,7 @@
                   <FormulateInput
                     type="group"
                     :repeatable="true"
-                    v-model="form.accident_history"
+                    v-model="form.accident_histories"
                     element-class="form-array"
                   >
                     <div class="row">
@@ -251,7 +251,7 @@
                   <FormulateInput
                     type="group"
                     :repeatable="true"
-                    v-model="form.experience_history"
+                    v-model="form.experience_histories"
                     element-class="form-array"
                   >
                     <div class="row">
@@ -297,7 +297,7 @@
                   <FormulateInput
                     type="group"
                     :repeatable="true"
-                    v-model="form.education_history"
+                    v-model="form.education_histories"
                     element-class="form-array"
                   >
                     <div class="row">
@@ -322,7 +322,7 @@
                   <FormulateInput
                     type="group"
                     :repeatable="true"
-                    v-model="form.license_history"
+                    v-model="form.license_histories"
                     element-class="form-array"
                   >
                     <div class="row">
@@ -333,7 +333,10 @@
                         <FormulateInput label="State" name="state" />
                       </div>
                       <div class="col-md-4 col-lg-4">
-                        <FormulateInput label="License Type" name="type" />
+                        <FormulateInput
+                          label="License Type"
+                          name="license_type"
+                        />
                       </div>
                       <div class="col-md-4 col-lg-4">
                         <FormulateInput
@@ -343,7 +346,7 @@
                             { value: '0', label: 'NO' },
                             { value: '1', label: 'YES' },
                           ]"
-                          name="type"
+                          name="license_denied_on_past"
                         />
                       </div>
                       <div class="col-md-4 col-lg-4">
@@ -354,7 +357,7 @@
                             { value: '0', label: 'NO' },
                             { value: '1', label: 'YES' },
                           ]"
-                          name="type"
+                          name="license_revoked_on_past"
                         />
                       </div>
                     </div>
@@ -374,9 +377,6 @@
         </div>
       </div>
     </FormulateForm>
-    <div>
-      <FlashMessage></FlashMessage>
-    </div>
   </div>
 </template>
 
@@ -399,8 +399,9 @@ export default {
         value: state.name,
       };
     });
-    this.form = Object.assign({},this.driver);
+    this.form = Object.assign({}, this.driver);
   },
+
   props: {
     driver: {
       type: Object,
@@ -432,15 +433,25 @@ export default {
         pre_drug_test: null,
         jail_term: null,
         status: null,
-        employment_history: [],
-        accident_history: [],
-        experience_history: [],
-        education_history: [],
-        license_history: [],
+        employment_histories: [{}],
+        accident_histories: [{}],
+        experience_histories: [{}],
+        education_histories: [{}],
+        license_histories: [{}],
       },
       options: null,
       validation: {},
     };
+  },
+  async mounted() {
+    await this.$nextTick();
+    if (!this.driver) {
+      this.form.employment_histories = [];
+      this.form.accident_histories = [];
+      this.form.experience_histories = [];
+      this.form.education_histories = [];
+      this.form.license_histories = [];
+    }
   },
   methods: {
     submitHandler() {
@@ -451,6 +462,8 @@ export default {
       axios
         .post(route("api.admin.driver.store"), this.form, headers)
         .then((res) => {
+          // console.log(res);
+          // return;
           this.flashMessage.show({
             status: "success",
             title: "Success",
