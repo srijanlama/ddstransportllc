@@ -65,8 +65,8 @@ class DriverController extends Controller
             'message' => 'something went wrong',
         ]);
     }
-    public function show($driver_id){
-        return Driver::with('employment_histories')->findOrFail($driver_id);
+    public function show($id){
+        return $driver = Driver::with('employment_histories', 'accident_histories', 'experience_histories', 'education_histories', 'license_histories')->findOrFail($id);
     }
   
 }

@@ -9,7 +9,7 @@ import route from "ziggy-js";
 import { Ziggy } from "../js/ziggy";
 
 window.Vue = require("vue").default;
-import { BootstrapVue } from 'bootstrap-vue'
+import { BootstrapVue } from "bootstrap-vue";
 import VueFormulate from "@braid/vue-formulate";
 import FlashMessage from "@smartweb/vue-flash-message";
 import Vue from "vue";
@@ -29,8 +29,7 @@ Vue.mixin({
     },
 });
 
-
-Vue.use(BootstrapVue)
+Vue.use(BootstrapVue);
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue
@@ -60,6 +59,10 @@ Vue.component(
 Vue.component(
     "driver-form",
     require("./components/admin/driver/DriverForm.vue").default
+);
+Vue.component(
+    "driver-show",
+    require("./components/admin/driver/DriverShow.vue").default
 );
 Vue.component(
     "admin-driver-create",

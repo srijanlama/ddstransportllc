@@ -23,6 +23,7 @@ Route::prefix('admin')->namespace('Admin')->name('admin.')->middleware('auth')->
         Route::get('', [DriverController::class , 'index'])->name('index');
         Route::get('/create', [DriverController::class , 'create'])->name('create');
         Route::get('/{id}/edit', [DriverController::class , 'edit'])->name('edit');
+        Route::get('/{id}/show', [DriverController::class , 'show'])->name('show');
     });
     Route::prefix('/setting')->name('setting.')->group(function(){
         Route::get('', [SettingController::class, 'form'])->name('form');
