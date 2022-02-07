@@ -470,7 +470,9 @@ export default {
             message: res.data.message,
             time: 3000,
           });
-          window.location.href = route("admin.driver.index");
+          setTimeout(()=> {
+            window.location.href = route("admin.driver.index");
+          },3000)
         })
         .catch((err) => {
           this.flashMessage.show({

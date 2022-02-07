@@ -134,11 +134,6 @@ export default {
           sortField: "phone",
         },
         {
-          name: "state",
-          title: "State",
-          sortField: "state",
-        },
-        {
           name: "actions",
         },
       ],
@@ -165,6 +160,9 @@ export default {
     },
     onActionClicked(action, data) {
       // console.log(route("admin.product.edit", { id: data.id }));
+      if(action == "view"){
+        window.location = route('admin.driver.show',data.id)
+      }
     },
   },
 };
