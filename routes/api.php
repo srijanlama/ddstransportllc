@@ -25,6 +25,7 @@ Route::prefix('admin')->name('api.admin.')->namespace('Api\Admin')->middleware('
         route::post('store',[ DriverController::class , 'store'])->name('store');
         route::post('{id}/update',[ DriverController::class , 'update'])->name('update');
         route::get('{id}/show',[ DriverController::class , 'show'])->name('show');
+        route::post('{id}/avatar',[ DriverController::class , 'avatar'])->name('avatar');
     });
 
     Route::prefix('/setting')->name('setting.')->group(function(){

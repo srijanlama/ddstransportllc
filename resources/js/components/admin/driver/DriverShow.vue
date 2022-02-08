@@ -4,22 +4,63 @@
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-white shadow-sm py-2 mb-3 px-3">
           <li class="breadcrumb-item">
-            <a href="route('admin.dashboard')">Dashboard</a>
+            <a :href="route('admin.dashboard')">Dashboard</a>
           </li>
           <li class="breadcrumb-item">
-            <a href="route('admin.driver.index')">Driver</a>
+            <a :href="route('admin.driver.index')">Driver</a>
           </li>
           <li class="breadcrumb-item active" aria-current="page">show</li>
         </ol>
       </nav>
     </div>
     <div class="bg-white shadow-sm card-body profile-content">
+      <div>
+        <a
+          :href="route('admin.driver.index')"
+          class="btn btn-sm bg-primary text-white"
+          >Go to Driver List</a
+        >
+      </div>
       <div class="basic-info">
         <div class="row">
           <h5>Driver Basic Info</h5>
+          <div class="my-5">
+            <div class="row">
+              <div class="col-md-4 col-lg-4">
+                <img
+                  :src="
+                    this.driver.profile_picture !=
+                    '/img/user/driver/default.png'
+                      ? `/storage/img/user/driver/${this.driver.profile_picture}`
+                      : `/img/user/driver/default.png`
+                  "
+                  alt=""
+                  class="img-thumbnail"
+                  style="max-width: 120px !important"
+                />
+              </div>
+              <div class="col-md-4 col-lg-4">
+                <FormulateForm @submit="submitHandler">
+                  <FormulateInput
+                    type="image"
+                    label="Select an image to upload"
+                    help="Select a png, jpg or gif to upload."
+                    validation="mime:image/jpeg,image/png,image/gif"
+                    :uploader="uploadPicture"
+                  />
+                  <button
+                    type="submit"
+                    class="btn btn-sm bg-primary text-white"
+                  >
+                    Upload Profile Picture
+                  </button>
+                </FormulateForm>
+              </div>
+            </div>
+          </div>
           <div class="col-md-4">
             Driver Name :
-            <strong>{{ driver.first_name }}</strong>
+            <strong>{{ driver.first_name + " " + driver.last_name }}</strong>
           </div>
           <div class="col-md-4">
             Email : <strong>{{ driver.email }}</strong>
@@ -168,14 +209,12 @@
           </div>
         </div>
       </div>
-      <div>
-        <a :href="route('admin.driver.index')">Go to Driver List</a>
-      </div>
     </div>
   </div>
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "DriverShow",
   props: {
@@ -184,6 +223,46 @@ export default {
       default() {
         return {};
       },
+    },
+  },
+  data() {
+    return {
+      form: {
+        profile_picture: null,
+      },
+    };
+  },
+  methods: {
+    submitHandler() {
+      if (this.form.profile_picture == null) {
+        alert("Please Upload Profile Picture First");
+        return;
+      }
+      let form_data = new FormData();
+      form_data.append("profile_picture", this.form.profile_picture);
+      // console.log(form_data.get('profile_picture'));
+      // return
+      axios
+        .post(route("api.admin.driver.avatar", this.driver.id), form_data, {
+          headers: {
+            "content-type": "multipart/form-data",
+          },
+        })
+        .then((res) => {
+          this.flashMessage.show({
+            status: "success",
+            title: "Success",
+            message: res.data.message,
+            time: 3000,
+          });
+          setTimeout(() => {
+            window.location.href = route("admin.driver.show",this.driver.id);
+          }, 3000);
+        })
+        .catch((err) => console.log(err));
+    },
+    uploadPicture(file, progress, error, options) {
+      this.form.profile_picture = file;
     },
   },
 };
@@ -208,7 +287,8 @@ export default {
 .employment,
 .educaiton,
 .accident,
-.license , .experience {
+.license,
+.experience {
   margin: 1.5rem 0 !important;
 }
 </style>

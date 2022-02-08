@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Api\Admin;
 
-use Illuminate\Http\Request;
 use App\Models\Driver;
-use App\Http\Controllers\Controller;
-use App\Http\Resources\DriverCollection;
+use Illuminate\Http\Request;
 use App\Service\DriverService;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Storage;
+use App\Http\Resources\DriverCollection;
 
 class DriverController extends Controller
 {
@@ -65,8 +66,27 @@ class DriverController extends Controller
             'message' => 'something went wrong',
         ]);
     }
-    public function show($id){
+    public function show($id)
+    {
         return $driver = Driver::with('employment_histories', 'accident_histories', 'experience_histories', 'education_histories', 'license_histories')->findOrFail($id);
     }
-  
+    public function avatar($id)
+    {
+        $driver = Driver::findOrFail($id);
+        $file = request()->file('profile_picture');
+        // dd($file);
+        $file = basename(Storage::put('public/img/user/driver/' ,$file));
+        $driver->profile_picture = $file;
+        if ($driver->save()) {
+            return response()->json([
+                'status' => 'success',
+                'message' =>  'Profile Picture Added',
+                'payload' => $driver
+            ]);
+        }
+        return response()->json([
+            'status' => 'error',
+            'message' => 'something went wrong',
+        ]);
+    }
 }

@@ -32,14 +32,21 @@ a:hover {
     text-decoration: none !important;
     color: rgb(153, 82, 233) !important;
 }
+#app {
+    position: relative !important;
+}
 
 .sidebar {
     position: absolute;
     left: 0 !important;
     top: 0 !important;
     min-width: 250px !important;
-    min-height: 100vh;
+    min-height: 100%;
     z-index: 1;
+}
+.sidebar-content {
+    min-height: 100% !important;
+    /* overflow-y: scroll !important; */
 }
 
 .main-content {

@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{ form.employment_histories }}
     <div>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-white shadow-sm py-2 mb-3 px-3">
@@ -14,7 +13,7 @@
         </ol>
       </nav>
     </div>
-    <FormulateForm @submit="submitHandler">
+    <FormulateForm @submit="submitHandler" @validation="validation = $event">
       <div class="driver-form">
         <div class="bg-white shadow-sm card-body">
           <div>
@@ -101,6 +100,7 @@
                     <FormulateInput
                       label="Expected Salary"
                       type="number"
+                      validation="required"
                       v-model="form.expected_salary"
                     />
                   </div>
@@ -137,13 +137,6 @@
                     element-class="form-array"
                   >
                     <div class="row">
-                      <div class="col-md-4 col-lg-4">
-                        <FormulateInput
-                          label="name"
-                          name="name"
-                          validation="required"
-                        />
-                      </div>
                       <div class="col-md-4 col-lg-4">
                         <FormulateInput
                           label="organization"
@@ -192,6 +185,7 @@
                           label="Salary"
                           type="number"
                           name="salary"
+                          validation="required"
                         />
                       </div>
                       <div class="col-md-4 col-lg-4">
@@ -443,6 +437,21 @@ export default {
       validation: {},
     };
   },
+  computed: {
+    checkValidation() {
+      if (this.validation.hasErrors) {
+        this.flashMessage.show({
+          status: "success",
+          title: "Success",
+          message: res.data.message,
+          time: 3000,
+        });
+        setTimeout(() => {
+          window.location.href = route("admin.driver.show");
+        }, 3000);
+      }
+    },
+  },
   async mounted() {
     await this.$nextTick();
     if (!this.driver) {
@@ -455,6 +464,7 @@ export default {
   },
   methods: {
     submitHandler() {
+      // checkValidation()
       const headers = {
         Accept: "application/json",
         "Content-Type": "application/json",
@@ -470,9 +480,9 @@ export default {
             message: res.data.message,
             time: 3000,
           });
-          setTimeout(()=> {
+          setTimeout(() => {
             window.location.href = route("admin.driver.index");
-          },3000)
+          }, 3000);
         })
         .catch((err) => {
           this.flashMessage.show({
