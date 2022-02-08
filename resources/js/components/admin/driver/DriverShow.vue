@@ -29,7 +29,7 @@
               <div class="col-md-4 col-lg-4">
                 <img
                   :src="
-                    this.driver.profile_picture ==
+                    this.driver.profile_picture !=
                     '/img/user/driver/default.png'
                       ? `/storage/img/user/driver/${this.driver.profile_picture}`
                       : `/img/user/driver/default.png`
@@ -48,7 +48,12 @@
                     validation="mime:image/jpeg,image/png,image/gif"
                     :uploader="uploadPicture"
                   />
-                  <button type="submit" class="btn btn-sm bg-primary text-white">Upload Profile Picture</button>
+                  <button
+                    type="submit"
+                    class="btn btn-sm bg-primary text-white"
+                  >
+                    Upload Profile Picture
+                  </button>
                 </FormulateForm>
               </div>
             </div>
@@ -243,7 +248,17 @@ export default {
             "content-type": "multipart/form-data",
           },
         })
-        .then((res) => console.log(res))
+        .then((res) => {
+          this.flashMessage.show({
+            status: "success",
+            title: "Success",
+            message: res.data.message,
+            time: 3000,
+          });
+          setTimeout(() => {
+            window.location.href = route("admin.driver.show",this.driver.id);
+          }, 3000);
+        })
         .catch((err) => console.log(err));
     },
     uploadPicture(file, progress, error, options) {

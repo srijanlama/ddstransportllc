@@ -1,6 +1,5 @@
 <template>
   <div>
-    {{ validation }}
     <div>
       <nav aria-label="breadcrumb">
         <ol class="breadcrumb bg-white shadow-sm py-2 mb-3 px-3">
@@ -448,7 +447,7 @@ export default {
           time: 3000,
         });
         setTimeout(() => {
-          window.location.href = route("admin.driver.index");
+          window.location.href = route("admin.driver.show");
         }, 3000);
       }
     },
