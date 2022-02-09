@@ -100,7 +100,7 @@
 <!-- Start Driver Info -->
 <section class="main-contact-area ptb-100 cs-drive-form cs-drive-form">
     <div class="container">
-        <step-wizard-form></step-wizard-form>
+        <step-wizard-form :states="{{json_encode($states)}}"></step-wizard-form>
     </div>
 </section>
 <!-- End Driver Info -->

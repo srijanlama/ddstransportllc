@@ -13,6 +13,7 @@
         </ol>
       </nav>
     </div>
+    {{ form.employment_histories }}
     <FormulateForm @submit="submitHandler" @validation="validation = $event">
       <div class="driver-form">
         <div class="bg-white shadow-sm card-body">
