@@ -35,14 +35,20 @@ a:hover {
 #app {
     position: relative !important;
 }
-
+.top-bar{
+    position: fixed !important;
+    left: 0;
+    top: 0;
+    width: 100% !important;
+}
 .sidebar {
-    position: absolute;
+    position: fixed;
     left: 0 !important;
     top: 0 !important;
     min-width: 250px !important;
     min-height: 100%;
     z-index: 1;
+    top: 56px !important ;
 }
 .sidebar-content {
     min-height: 100% !important;
@@ -50,6 +56,7 @@ a:hover {
 }
 
 .main-content {
+    margin-top: 60px !important;
     margin-left: 250px !important;
     padding: 0 3rem ;
 }
