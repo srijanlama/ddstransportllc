@@ -15,7 +15,7 @@ class AddProfilePictureColumnToDriversTable extends Migration
     {
         Schema::table('drivers', function (Blueprint $table) {
             //
-            $table->string('profile_picture')->default('/img/user/driver.default.png');
+            $table->string('profile_picture')->default('/img/user/driver/default.png');
         });
     }
 
