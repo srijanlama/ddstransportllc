@@ -30,6 +30,7 @@
         <!-- End Header Area -->
 
         @yield('content')
+        <flash-message></flash-message>
         <!-- Start Footer Area -->
         @include('layouts.partials.footer')
         <!-- End Footer Area -->

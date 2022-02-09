@@ -1,96 +1,143 @@
 <template>
   <div>
-    <form-wizard>
+    <form-wizard @onComplete="submit">
       <tab-content :selected="true" title="Basic Information">
         <div class="row">
-          <div class="col-lg-6 col-sm-6">
+          <div class="col-lg-4 col-md-4">
             <div class="form-group">
               <input
                 type="text"
                 class="form-control"
                 placeholder="Your First Name"
-                v-model="form.first_name"
+                v-model="formData.first_name"
               />
+              <div v-if="hasError('first_name')">
+                <div class="help-block with-errors">
+                  <ul class="list-unstyled">
+                    <li>please enter first name</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="col-lg-6 col-sm-6">
+          <div class="col-lg-4 col-md-4">
             <div class="form-group">
               <input
                 type="text"
                 class="form-control"
                 placeholder="Your Middle Name"
-                v-model="form.middle_name"
+                v-model="formData.middle_name"
               />
             </div>
           </div>
-          <div class="col-lg-6 col-sm-6">
+          <div class="col-lg-4 col-md-4">
             <div class="form-group">
               <input
                 type="text"
                 class="form-control"
                 placeholder="Your Last Name"
-                v-model="form.last_name"
+                v-model="formData.last_name"
               />
+              <div v-if="hasError('last_name')">
+                <div class="help-block with-errors">
+                  <ul class="list-unstyled">
+                    <li>please enter last name</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-lg-6 col-sm-6">
+          <div class="col-lg-4 col-md-4">
             <div class="form-group">
               <input
                 type="text"
                 class="form-control"
                 placeholder="Your Email"
-                v-model="form.email"
+                v-model="formData.email"
               />
+              <div v-if="hasError('email')">
+                <div class="help-block with-errors">
+                  <ul class="list-unstyled">
+                    <li v-if="!$v.formData.email.required">
+                      please enter email
+                    </li>
+                    <li v-if="!$v.formData.email.email">
+                      please enter valid email
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-lg-6 col-sm-6">
+          <div class="col-lg-4 col-md-4">
             <div class="form-group">
               <input
                 type="text"
                 class="form-control"
                 placeholder="Your Phone"
-                v-model="form.phone"
+                v-model="formData.phone"
               />
+              <div v-if="hasError('phone')">
+                <div class="help-block with-errors">
+                  <ul class="list-unstyled">
+                    <li>please enter phone</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-lg-6 col-sm-6">
+          <div class="col-lg-4 col-md-4">
             <div class="form-group">
               <input
                 type="number"
                 class="form-control"
                 placeholder="Age"
-                v-model="form.age"
+                v-model="formData.age"
               />
+              <div v-if="hasError('age')">
+                <div class="help-block with-errors">
+                  <ul class="list-unstyled">
+                    <li>please enter age</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="col-lg-6 col-sm-6">
+          <div class="col-lg-4 col-md-4">
             <div class="form-group">
               <label>Date of Application</label>
               <input
                 type="date"
                 class="form-control"
                 placeholder="Date Of Application"
-                v-model="form.date_of_application"
+                v-model="formData.date_of_application"
               />
             </div>
           </div>
-          <div class="col-lg-6 col-sm-6">
+          <div class="col-lg-4 col-md-4">
             <div class="form-group">
               <label>Date of Birth</label>
               <input
                 type="date"
                 class="form-control"
                 placeholder="Date Of Birth"
-                v-model="form.dob"
+                v-model="formData.dob"
               />
+              <div v-if="hasError('dob')">
+                <div class="help-block with-errors">
+                  <ul class="list-unstyled">
+                    <li>please Date of Birth</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
 
-          <div class="col-lg-6 col-sm-6">
+          <div class="col-lg-4 col-md-4">
             <div class="form-group">
               <label>Are You eligible to work in USA</label>
-              <select class="form-control" v-model="form.working_in_us">
+              <select class="form-control" v-model="formData.working_in_us">
                 <option
                   v-for="(item, index) in this.options"
                   :key="index"
@@ -101,10 +148,10 @@
               </select>
             </div>
           </div>
-          <div class="col-lg-6 col-sm-6">
+          <div class="col-lg-4 col-md-4">
             <div class="form-group">
               <label>Have you tested Alcohol & Drug Test ?</label>
-              <select class="form-control" v-model="form.pre_drug_test">
+              <select class="form-control" v-model="formData.pre_drug_test">
                 <option
                   v-for="(item, index) in this.options"
                   :key="index"
@@ -115,27 +162,14 @@
               </select>
             </div>
           </div>
-          <div class="col-lg-6 col-sm-6">
+          <div class="col-lg-4 col-md-4">
             <div class="form-group">
               <label>Have you been served to Jail Term ?</label>
-              <select class="form-control" v-model="form.jail_term">
+              <select class="form-control" v-model="formData.jail_term">
                 <option
                   v-for="(item, index) in this.options"
                   :key="index"
                   :value="item.status"
-                >
-                  {{ item.name }}
-                </option>
-              </select>
-            </div>
-          </div>
-          <div class="col-lg-6 col-sm-6">
-            <div class="form-group">
-              <select class="form-control">
-                <option
-                  v-for="(item, index) in this.states"
-                  :key="index"
-                  :value="item.name"
                 >
                   {{ item.name }}
                 </option>
@@ -145,40 +179,155 @@
         </div>
       </tab-content>
       <tab-content title="Employment History">
-        <div class="row">
-          <div class="col-lg-6 col-sm-6">
-            {{ form.employment_histories }}
+        <div
+          class="row"
+          v-for="(item, index) in formData.employment_histories"
+          :key="index"
+        >
+          <div class="col-md-4 col-lg-4">
             <div class="form-group">
-              <div
-                v-for="(item, index) in form.employment_histories"
-                :key="index"
-              >
-                <div>
-                  <input type="text" v-model="item.organization" />
-                  <input type="text" v-model="item.address" />
-                  <input type="text" v-model="item.city" />
-                  <input type="text" v-model="item.state" />
-                  <input type="text" v-model="item.zip" />
-                  <input type="text" v-model="item.phone" />
-                  <input type="text" v-model="item.position" />
-                  <input type="text" v-model="item.start_on" />
-                  <input type="text" v-model="item.end_on" />
-                  <input type="text" v-model="item.salary" />
-                  <input type="text" v-model="item.reason_for_leaving" />
-                </div>
-                <button @click="removeEmployment(index)">Remove me</button>
-              </div>
-              <button @click="addEmployment">Add Employment History</button>
+              <label>Organization Name</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Organization Name"
+                v-model="item.organiztion"
+              />
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <div class="form-group">
+              <label>address</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Address"
+                v-model="item.address"
+              />
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <div class="form-group">
+              <label>City</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="City"
+                v-model="item.city"
+              />
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <div class="form-group">
+              <label>Zip</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Zip Code"
+                v-model="item.zip"
+              />
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <div class="form-group">
+              <label>Phone</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Phone"
+                v-model="item.phone"
+              />
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <div class="form-group">
+              <label>Position</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Position"
+                v-model="item.position"
+              />
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <div class="form-group">
+              <label>Start On</label>
+              <input
+                type="date"
+                class="form-control"
+                placeholder="Position"
+                v-model="item.start_on"
+              />
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <div class="form-group">
+              <label>End On</label>
+              <input
+                type="date"
+                class="form-control"
+                placeholder="Position"
+                v-model="item.end_on"
+              />
             </div>
           </div>
 
-          <div class="col-lg-6 col-sm-6"></div>
+          <div class="col-md-4 col-lg-4">
+            <div class="form-group">
+              <label>Salary</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="Salary"
+                v-model="item.salary"
+              />
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <div class="form-group">
+              <label>Reason For Leaving</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="e.g Covid Pandemic"
+                v-model="item.reason_for_leaving"
+              />
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-4">
+            <div class="form-group">
+              <label>State</label>
+              <select v-model="item.state" class="form-control">
+                <option
+                  v-for="(item, index) in states"
+                  :key="index"
+                  :value="item.name"
+                >
+                  {{ item.name }}
+                </option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-4 col-lg-4 d-flex align-items-center">
+            <button
+              @click="removeEmployment(index)"
+              class="default-btn btn-two"
+            >
+              Remove Employmnet History
+            </button>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-12">
+          <button @click="addEmployment" class="btn bg-primary text-white">
+            Add Employmnet History
+          </button>
         </div>
       </tab-content>
       <tab-content title="Accident History">
         <div
           class="row"
-          v-for="(item, index) in form.accident_histories"
+          v-for="(item, index) in formData.accident_histories"
           :key="index"
         >
           <div class="col-lg-6 col-md-6">
@@ -189,7 +338,7 @@
                   type="date"
                   class="form-control"
                   placeholder="Accident Date"
-                  v-model="form.date_of_application"
+                  v-model="formData.date_of_application"
                 />
               </div>
             </div>
@@ -233,14 +382,144 @@
             </button>
           </div>
         </div>
-        <div class="col-md-12 col-lg-12" >
-          <button @click="addAccident" class="btn bg-primary text-white">Add Accident History</button>
+        <div class="col-md-12 col-lg-12">
+          <button @click="addAccident" class="btn bg-primary text-white">
+            Add Accident History
+          </button>
+        </div>
+      </tab-content>
+      <tab-content title="Accident History">
+        <div
+          class="row"
+          v-for="(item, index) in formData.accident_histories"
+          :key="index"
+        >
+          <div class="col-lg-6 col-md-6">
+            <div class="col-md-12 col-lg-12">
+              <div class="form-group">
+                <label>Accident Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  placeholder="Accident Date"
+                  v-model="formData.date_of_application"
+                />
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12">
+              <div class="form-group">
+                <label>Nature of Accident</label>
+                <textarea
+                  class="form-control"
+                  cols="30"
+                  rows="10"
+                  v-model="item.nature_of_accident"
+                ></textarea>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12">
+              <div class="form-group">
+                <label>Fatalites</label>
+                <textarea
+                  class="form-control"
+                  cols="30"
+                  rows="10"
+                  v-model="item.fatalities"
+                ></textarea>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12">
+              <div class="form-group">
+                <label>Injuries</label>
+                <textarea
+                  class="form-control"
+                  cols="30"
+                  rows="10"
+                  v-model="item.injuries"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <button @click="removeAccident(index)">
+              Remove Accident History
+            </button>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-12">
+          <button @click="addAccident" class="btn bg-primary text-white">
+            Add Accident History
+          </button>
+        </div>
+      </tab-content>
+      <tab-content title="Accident History">
+        <div
+          class="row"
+          v-for="(item, index) in formData.accident_histories"
+          :key="index"
+        >
+          <div class="col-lg-6 col-md-6">
+            <div class="col-md-12 col-lg-12">
+              <div class="form-group">
+                <label>Accident Date</label>
+                <input
+                  type="date"
+                  class="form-control"
+                  placeholder="Accident Date"
+                  v-model="formData.date_of_application"
+                />
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12">
+              <div class="form-group">
+                <label>Nature of Accident</label>
+                <textarea
+                  class="form-control"
+                  cols="30"
+                  rows="10"
+                  v-model="item.nature_of_accident"
+                ></textarea>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12">
+              <div class="form-group">
+                <label>Fatalites</label>
+                <textarea
+                  class="form-control"
+                  cols="30"
+                  rows="10"
+                  v-model="item.fatalities"
+                ></textarea>
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12">
+              <div class="form-group">
+                <label>Injuries</label>
+                <textarea
+                  class="form-control"
+                  cols="30"
+                  rows="10"
+                  v-model="item.injuries"
+                ></textarea>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 col-md-6">
+            <button @click="removeAccident(index)">
+              Remove Accident History
+            </button>
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-12">
+          <button @click="addAccident" class="btn bg-primary text-white">
+            Add Accident History
+          </button>
         </div>
       </tab-content>
       <tab-content title="Experience History">
         <div
           class="row"
-          v-for="(item, index) in form.experience_histories"
+          v-for="(item, index) in formData.experience_histories"
           :key="index"
         >
           <div class="col-lg-6 col-md-6">
@@ -258,7 +537,7 @@
             <div class="col-md-12 col-lg-12">
               <div class="form-group">
                 <label>Equipment Type</label>
-                 <input
+                <input
                   type="text"
                   class="form-control"
                   placeholder="Equipment Type"
@@ -269,7 +548,7 @@
             <div class="col-md-12 col-lg-12">
               <div class="form-group">
                 <label>Started On</label>
-                   <input
+                <input
                   type="date"
                   class="form-control"
                   placeholder="Equipment Type"
@@ -280,7 +559,7 @@
             <div class="col-md-12 col-lg-12">
               <div class="form-group">
                 <label>Ended On</label>
-                   <input
+                <input
                   type="text"
                   class="form-control"
                   placeholder="Ended On"
@@ -295,14 +574,16 @@
             </button>
           </div>
         </div>
-        <div class="col-md-12 col-lg-12" >
-          <button @click="addExperience" class="btn bg-primary text-white">Add Experience History</button>
+        <div class="col-md-12 col-lg-12">
+          <button @click="addExperience" class="btn bg-primary text-white">
+            Add Experience History
+          </button>
         </div>
       </tab-content>
       <tab-content title="Education History">
         <div
           class="row"
-          v-for="(item, index) in form.education_histories"
+          v-for="(item, index) in formData.education_histories"
           :key="index"
         >
           <div class="col-lg-6 col-md-6">
@@ -320,7 +601,7 @@
             <div class="col-md-12 col-lg-12">
               <div class="form-group">
                 <label>Organization</label>
-                 <input
+                <input
                   type="text"
                   class="form-control"
                   placeholder="Organiztion"
@@ -331,7 +612,7 @@
             <div class="col-md-12 col-lg-12">
               <div class="form-group">
                 <label>Address</label>
-                   <input
+                <input
                   type="date"
                   class="form-control"
                   placeholder="address"
@@ -346,14 +627,16 @@
             </button>
           </div>
         </div>
-        <div class="col-md-12 col-lg-12" >
-          <button @click="addEducation" class="btn bg-primary text-white">Add Education History</button>
+        <div class="col-md-12 col-lg-12">
+          <button @click="addEducation" class="btn bg-primary text-white">
+            Add Education History
+          </button>
         </div>
       </tab-content>
       <tab-content title="License History">
         <div
           class="row"
-          v-for="(item, index) in form.license_histories"
+          v-for="(item, index) in formData.license_histories"
           :key="index"
         >
           <div class="col-lg-6 col-md-6">
@@ -371,7 +654,7 @@
             <div class="col-md-12 col-lg-12">
               <div class="form-group">
                 <label>State</label>
-                 <input
+                <input
                   type="text"
                   class="form-control"
                   placeholder="State"
@@ -382,7 +665,7 @@
             <div class="col-md-12 col-lg-12">
               <div class="form-group">
                 <label>License Type</label>
-                   <input
+                <input
                   type="date"
                   class="form-control"
                   placeholder="address"
@@ -397,8 +680,10 @@
             </button>
           </div>
         </div>
-        <div class="col-md-12 col-lg-12" >
-          <button @click="addLicense" class="btn bg-primary text-white">Add License History</button>
+        <div class="col-md-12 col-lg-12">
+          <button @click="addLicense" class="btn bg-primary text-white">
+            Add License History
+          </button>
         </div>
       </tab-content>
     </form-wizard>
@@ -406,9 +691,14 @@
 </template>
 
 <script>
+import axios from "axios";
 import "vue-step-wizard/dist/vue-step-wizard.css";
+import { ValidationHelper } from "vue-step-wizard";
+import { required, email } from "vuelidate/lib/validators";
+
 export default {
   name: "StepWizardForm",
+  mixins: [ValidationHelper],
   props: {
     states: {
       type: Array,
@@ -419,13 +709,13 @@ export default {
   },
   data() {
     return {
-      form: {
+      formData: {
         first_name: null,
         middle_name: null,
         last_name: null,
         email: null,
         phone: null,
-        date_of_application: null,
+        date_of_application: new Date().toISOString().slice(0, 10),
         working_in_us: true,
         pre_drug_test: false,
         jail_term: false,
@@ -451,53 +741,102 @@ export default {
           name: "NO",
         },
       ],
+      validationRules: [
+        {
+          first_name: { required },
+          last_name: { required },
+          email: { required, email },
+          phone: { required },
+          age: { required },
+          dob: { required },
+        },
+      ],
     };
   },
   methods: {
     addEmployment(e) {
       e.preventDefault();
-      this.form.employment_histories.push({});
+      this.formData.employment_histories.push({});
     },
     removeEmployment(index) {
-      this.form.employment_histories.splice(index, 1);
+      this.formData.employment_histories.splice(index, 1);
     },
     addAccident(e) {
       e.preventDefault();
-      this.form.accident_histories.push({});
+      this.formData.accident_histories.push({});
     },
     removeAccident(index) {
-      this.form.accident_histories.splice(index, 1);
+      this.formData.accident_histories.splice(index, 1);
     },
     addExperience(e) {
       e.preventDefault();
-      this.form.experience_histories.push({});
+      this.formData.experience_histories.push({});
     },
     removeExperience(index) {
-      this.form.experience_histories.splice(index, 1);
+      this.formData.experience_histories.splice(index, 1);
     },
     addEducation(e) {
       e.preventDefault();
-      this.form.education_histories.push({});
+      this.formData.education_histories.push({});
     },
     removeEducation(index) {
-      this.form.education_histories.splice(index, 1);
+      this.formData.education_histories.splice(index, 1);
     },
     addLicense(e) {
       e.preventDefault();
-      this.form.license_histories.push({});
+      this.formData.license_histories.push({});
     },
     removeLicense(index) {
-      this.form.license_histories.splice(index, 1);
+      this.formData.license_histories.splice(index, 1);
+    },
+    submit() {
+      axios
+        .post(route("api.admin.driver.store"), this.formData)
+        .then((res) => {
+          this.flashMessage.show({
+            status: "success",
+            title: "Success",
+            message: res.data.message,
+            time: 3000,
+          });
+          setTimeout(() => {
+            window.location.href = route("drive.create");
+          }, 3000);
+        })
+        .catch((err) => {
+          console.log(err.message);
+          return;
+          this.flashMessage.show({
+            status: "error",
+            message: err.errors.email[0],
+            time: 3000,
+          });
+          setTimeout(() => {
+            window.location.href = route("drive.create");
+          }, 3000);
+        });
     },
   },
 };
 </script>
 
 <style lang="scss">
-// div.step-header {
-//   // display: none !important;
-// }
-.vue-step-wizard{
-  width:  auto !important;
+.vue-step-wizard {
+  width: auto !important;
+}
+span.tabStatus {
+  margin: auto !important;
+}
+span.tabStatus,
+span.tabLabel {
+  display: block !important;
+  font-size: 14px !important;
+  text-align: center;
+}
+li.step-item {
+  margin-right: 0.5rem;
+}
+div.help-block {
+  padding: 0 0.5rem !important; 
 }
 </style>

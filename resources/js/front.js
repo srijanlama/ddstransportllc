@@ -5,6 +5,7 @@
  */
 
  require("./bootstrap");
+
  
  window.Vue = require("vue").default;
  import VueStepWizard from 'vue-step-wizard'
@@ -15,6 +16,23 @@
 
 // import 'vue-step-wizard/dist/vue-step-wizard.css'
 Vue.use(VueStepWizard);
+
+// ziggy 
+import route from "ziggy-js";
+import { Ziggy } from "../js/ziggy";
+window.Ziggy = Ziggy;
+window.route = route;
+
+Vue.mixin({
+    data() {
+        return {
+            Ziggy,
+        };
+    },
+    methods: {
+        route: (name, params, absolute) => route(name, params, absolute, Ziggy),
+    },
+});
 
 
  /**
