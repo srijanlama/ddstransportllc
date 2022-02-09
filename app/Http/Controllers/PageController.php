@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Models\State;
+use App\Models\State;
 use Illuminate\Http\Request;
 use App\Models\Driver;
 use App\Models\Setting;
@@ -14,7 +14,7 @@ class PageController extends Controller
         return view('page.home',compact('setting'));
     }
     public function drive(){
-        $states = State::all();
+         $states = State::all();
         $setting = Setting::first();
         return view('page.drive', compact('states','setting'));
     }
