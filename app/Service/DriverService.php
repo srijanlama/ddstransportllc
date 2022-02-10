@@ -18,7 +18,7 @@ class DriverService
         $data = request()->validate([
             'first_name' => 'required',
             'last_name' => 'required',
-            'email' => 'required | unique:drivers',
+            'email' => 'required',
             'phone' => 'required',
             'date_of_application' => 'required',
             'working_in_us' => 'required',

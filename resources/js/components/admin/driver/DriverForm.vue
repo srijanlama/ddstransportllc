@@ -13,8 +13,7 @@
         </ol>
       </nav>
     </div>
-    {{ form.employment_histories }}
-    <FormulateForm @submit="submitHandler" @validation="validation = $event">
+    <FormulateForm @submit="submitHandler" >
       <div class="driver-form">
         <div class="bg-white shadow-sm card-body">
           <div>
@@ -88,6 +87,7 @@
                     <FormulateInput
                       label="Age"
                       type="number"
+                      validation="required"
                       v-model="form.age"
                     />
                   </div>
@@ -114,6 +114,7 @@
                         { value: 0, label: 'NO' },
                       ]"
                       v-model="form.pre_drug_test"
+                      validation="required"
                     />
                   </div>
                   <div class="form-group col-md-4 col-lg-4">
@@ -125,6 +126,7 @@
                         { value: 0, label: 'NO' },
                       ]"
                       v-model="form.jail_term"
+                      validation="required"
                     />
                   </div>
                 </div>
@@ -466,6 +468,8 @@ export default {
   methods: {
     submitHandler() {
       // checkValidation()
+      // console.log(this.form);
+      // return
       const headers = {
         Accept: "application/json",
         "Content-Type": "application/json",

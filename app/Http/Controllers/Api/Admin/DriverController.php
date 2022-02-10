@@ -25,7 +25,7 @@ class DriverController extends Controller
         return DriverService::store();
         $data = request()->validate([
             'name' => 'required',
-            'email' => 'required|unique:drivers',
+            'email' => 'required',
             'phone' => 'required',
             'state' => 'required',
             'status' => 'required',
