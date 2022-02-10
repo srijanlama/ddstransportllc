@@ -466,6 +466,7 @@ export default {
   methods: {
     submitHandler() {
       // checkValidation()
+      // console.log(this.form);
       const headers = {
         Accept: "application/json",
         "Content-Type": "application/json",
