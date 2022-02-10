@@ -31,7 +31,7 @@
                   :src="
                     this.driver.profile_picture !=
                     '/img/user/driver/default.png'
-                      ? `/storage/img/user/driver/${this.driver.profile_picture}`
+                      ? `/storage/public/img/user/driver/${this.driver.profile_picture}`
                       : `/img/user/driver/default.png`
                   "
                   alt=""
