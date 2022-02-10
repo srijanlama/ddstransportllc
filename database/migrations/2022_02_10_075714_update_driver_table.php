@@ -16,7 +16,6 @@ class UpdateDriverTable extends Migration
         Schema::table('drivers', function (Blueprint $table) {
             //
             $table->dropUnique('drivers_email_unique');
-            $table->string('email');
         });
     }
 
@@ -29,7 +28,7 @@ class UpdateDriverTable extends Migration
     {
         Schema::table('drivers', function (Blueprint $table) {
             //
-            $table->dropColumn('email');
+            // $table->dropUnique('drivers_email_unique');
         });
     }
 }
