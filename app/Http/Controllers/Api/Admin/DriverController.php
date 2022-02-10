@@ -74,7 +74,7 @@ class DriverController extends Controller
     {
         $driver = Driver::findOrFail($id);
         $file = request()->file('profile_picture');
-        dd($file);
+        // dd($file);
         $file = basename(Storage::put('public/img/user/driver/' ,$file));
         $driver->profile_picture = $file;
         if ($driver->save()) {
